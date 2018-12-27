@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 # Algorithms Homework
 
@@ -86,7 +87,29 @@ O(n/2) is actually O(2 ^n + n)
 
 4) At a high level, how does merge sort work? What technique does it use?
 
-Merge sort starts with a middle value and then checks to see if that target is  >, < , = . Depending on the result, it will then exclude the other half of the data saving the computer a massive amount of resorouces. It will continue to do this until we quickly find the target.
+Merge sort starts with a middle value and then checks to see if that target is  >, < , = .
+ Depending on the result, it will then exclude the other half of the data saving the computer a massive amount of resorouces.
+ It will continue to do this until we quickly find the target.
+
 
 Divde and conquer
+ http://bigocheatsheet.com/
 """
+
+"""
+## Short code
+
+1. Fibonnaci numbers are defined as F_n = F_n-1 + F_n-2 for n > 1, with F_0 = 0 and F_1 = 1. For example, F_2 = F_1 + F_0 = 1 + 0 = 1.
+ Implement a function that will return the fibonnaci value for any integer n. Use type hints for the function signature.
+
+
+"""
+def fibonnaci(x):
+    if x == 0:
+        return 0
+    elif x == 1:
+        return 1
+    else:
+        return fibonnaci(x-1)+fibonnaci(x-2)
+
+print(fibonnaci(5))
