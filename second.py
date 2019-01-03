@@ -106,10 +106,13 @@ Divde and conquer
 """
 def fibonnaci(x):
     if x == 0:
-        return 0
+        return x
     elif x == 1:
-        return 1
+        return x
     else:
         return fibonnaci(x-1)+fibonnaci(x-2)
 
-print(fibonnaci(5))
+print(fibonnaci(7))
+
+
+
