@@ -1,10 +1,13 @@
 ## Project 1 - bisect
 import random
+import timeit
+from math import floor
+
+
 '''
 Your goal is to time the difference between binary search and linear search of a list.
 
-You'll generate a list of 10_000 random numbers between 1 and 20,000, grab one of its members by randomly selecting an index ' \
-   'in the sample range' \
+You'll generate a list of 10_000 random numbers between 1 and 20,000, grab one of its members by randomly selecting an index ' \'in the sample range' \
    ', reshuffle the list, then search for the list either using binary search or linear search. ' \
    'The search will be timed. Then you'll repeat this 10 times for each method, and find its average time.
 
@@ -25,13 +28,27 @@ Once you finish, why are you seeing the results you get, that one technique is f
 '''
 original_list = random.sample(range(1, 20_000), 10_000)
 guess_number = random.sample(range(1, 20_000), 1)
+sorted_list = sorted(original_list)
+guess = guess_number[0]
+
 def linear_search (listy,inty):
-   for x in listy:
-      if x == inty[0]:
-         print('found ' + str(inty[0]))
-   print('done')
-   
+   return [x for x in listy if x == inty]
 
-linear_search(original_list,guess_number)
+def binary_search(Array, Search_Term):
+   n = len(Array)
+   L = 0
+   R = n - 1
 
-def binary_search (listy,inty):
+   while L <= R:
+      mid = floor((L + R) / 2)
+      if Array[mid] < Search_Term:
+         L = mid + 1
+      elif Array[mid] > Search_Term:
+         R = mid - 1
+      else:
+         return mid
+   return -1
+
+print(linear_search(original_list,guess))
+print(binary_search(sorted_list,guess))
+
